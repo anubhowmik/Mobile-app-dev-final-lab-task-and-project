@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "385384121761",
+    "firebase_url": "https://finalprojmobappdev2026-default-rtdb.firebaseio.com",
+    "project_id": "finalprojmobappdev2026",
+    "storage_bucket": "finalprojmobappdev2026.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:385384121761:android:5872aac0ed3aed8120f7e0",
+        "android_client_info": {
+          "package_name": "com.example.mobileappdevfinalproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBG2N0RdvQR1GcwmuqqbjE8_byp6hGWTFk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
