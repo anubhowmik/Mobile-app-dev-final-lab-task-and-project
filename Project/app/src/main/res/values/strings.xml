@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MObileAppDevFinalProject</string>
+    <string name="search_items">SEARCH ITEMS</string>
+    <string name="recomendations">Recomendations</string>
 </resources>

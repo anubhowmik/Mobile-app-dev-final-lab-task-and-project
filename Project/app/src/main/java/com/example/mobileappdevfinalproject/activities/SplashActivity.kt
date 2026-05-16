@@ -9,8 +9,8 @@ import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mobileappdevfinalproject.databinding.ActivitySplashBinding
 import com.example.mobileappdevfinalproject.utils.PreferenceManager
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {

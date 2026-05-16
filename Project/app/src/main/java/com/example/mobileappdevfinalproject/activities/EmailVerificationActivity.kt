@@ -7,8 +7,8 @@ import android.os.Looper
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mobileappdevfinalproject.databinding.ActivityEmailVerificationBinding
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 
 class EmailVerificationActivity : AppCompatActivity() {
 

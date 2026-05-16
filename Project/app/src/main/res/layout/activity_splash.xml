@@ -3,33 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#8F9E2E"
     android:gravity="center"
-    android:background="@android:color/white"
     tools:context=".activities.SplashActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <ImageView
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:src="@mipmap/ic_launcher"/>
+            android:src="@drawable/btn_2" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Authentication App"
+            android:layout_marginTop="16dp"
+            android:text="E-COMMERCE APP"
             android:textSize="28sp"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"/>
+            android:textStyle="bold" />
 
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"/>
+            android:layout_marginTop="24dp" />
 
     </LinearLayout>
 

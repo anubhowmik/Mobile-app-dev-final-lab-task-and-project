@@ -6,8 +6,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mobileappdevfinalproject.databinding.ActivityHomeBinding
 import com.example.mobileappdevfinalproject.utils.PreferenceManager
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 
 class HomeActivity : AppCompatActivity() {
 
