@@ -52,6 +52,7 @@ dependencies {
     implementation(libs.androidx.viewpager2)
     implementation(libs.viewpagerdotsindicator)
     implementation(libs.material)
+    implementation(libs.glide)
 
     // ViewModel and LiveData
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")

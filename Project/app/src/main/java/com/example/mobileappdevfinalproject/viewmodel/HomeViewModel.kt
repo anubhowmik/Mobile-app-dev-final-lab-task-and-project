@@ -1,6 +1,13 @@
 package com.example.mobileappdevfinalproject.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import com.example.mobileappdevfinalproject.model.BrandModel
+import com.example.mobileappdevfinalproject.repository.HomeRepository
 
-class HomeViewModel: ViewModel {
+class HomeViewModel: ViewModel (){
+    private val repository= HomeRepository()
+
+    val brands: LiveData<MutableList<BrandModel>> = repository.brands
+    fun loadBrands() = repository.loadBrands()
 }
