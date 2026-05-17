@@ -45,6 +45,7 @@ kotlin {
 }
 
 dependencies {
+    implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
@@ -53,6 +54,7 @@ dependencies {
     implementation(libs.viewpagerdotsindicator)
     implementation(libs.material)
     implementation(libs.glide)
+    implementation(libs.gson)
 
     // ViewModel and LiveData
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")

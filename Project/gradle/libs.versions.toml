@@ -13,6 +13,7 @@ recyclerview = "1.4.0"
 viewpager2 = "1.1.0"
 viewpagerdotsindicator = "5.1.0"
 glide = "4.16.0"
+gson = "2.14.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -30,6 +31,7 @@ androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview"
 androidx-viewpager2 = { group = "androidx.viewpager2", name = "viewpager2", version.ref = "viewpager2" }
 viewpagerdotsindicator = { group = "com.tbuonomo", name = "dotsindicator", version.ref = "viewpagerdotsindicator" }
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
