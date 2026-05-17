@@ -3,6 +3,7 @@ package com.example.mobileappdevfinalproject.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.mobileappdevfinalproject.model.BrandModel
+import com.example.mobileappdevfinalproject.model.ItemModel
 import com.example.mobileappdevfinalproject.model.SliderModel
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -12,6 +13,7 @@ import com.google.firebase.database.ValueEventListener
 class HomeRepository {
     private val firebaseDatabase = FirebaseDatabase.getInstance()
 
+    private val _popular = MutableLiveData<MutableList<ItemModel>>()
     private val _brands = MutableLiveData<MutableList<BrandModel>>()
     private val _banners = MutableLiveData<List<SliderModel>>()
 
@@ -20,6 +22,9 @@ class HomeRepository {
 
     val banners: LiveData<List<SliderModel>>
         get() = _banners
+
+    val popular: LiveData<MutableList<ItemModel>>
+        get() = _popular
 
     fun loadBrands() {
         val ref = firebaseDatabase.getReference("Category")
@@ -54,6 +59,22 @@ class HomeRepository {
 
             override fun onCancelled(error: DatabaseError) {
                 android.util.Log.e("HomeRepository", "Banners load cancelled", error.toException())
+            }
+        })
+    }
+
+    fun loadPopular() {
+        val ref = firebaseDatabase.getReference("Items")
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val list = mutableListOf<ItemModel>()
+                for (childSnapshot in snapshot.children) {
+                    childSnapshot.getValue(ItemModel::class.java)?.let { list.add(it) }
+                }
+                _popular.value = list
+            }
+
+            override fun onCancelled(error: DatabaseError) {
             }
         })
     }

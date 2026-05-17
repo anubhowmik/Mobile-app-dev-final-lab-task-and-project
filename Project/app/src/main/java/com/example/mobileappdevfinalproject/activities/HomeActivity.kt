@@ -7,11 +7,13 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import com.example.mobileappdevfinalproject.Adapter.BrandsAdapter
+import com.example.mobileappdevfinalproject.Adapter.PopularAdapter
 import com.example.mobileappdevfinalproject.Adapter.SliderAdapter
 import com.example.mobileappdevfinalproject.databinding.ActivityHomeBinding
 import com.example.mobileappdevfinalproject.model.SliderModel
@@ -27,6 +29,8 @@ class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
     private val brandsAdapter = BrandsAdapter(mutableListOf())
+    private val popularAdapter = PopularAdapter(mutableListOf())
+
     private lateinit var preferenceManager: PreferenceManager
     private val auth = Firebase.auth
 
@@ -49,6 +53,20 @@ class HomeActivity : AppCompatActivity() {
     private fun initUI() {
        initBrands()
         initBanners()
+        initRecommended()
+
+    }
+
+    private fun initRecommended() {
+        binding.recyclerViewRecommended.layoutManager= GridLayoutManager(this, 2)
+        binding.recyclerViewRecommended.adapter=popularAdapter
+        binding.progressBarRecommendation.visibility=View.VISIBLE
+
+        viewModel.popular.observe(this) { data ->
+            popularAdapter.updateDate(data)
+            binding.progressBarRecommendation.visibility = View.GONE
+        }
+        viewModel.loadPopular()
     }
 
     private fun initBrands() {
