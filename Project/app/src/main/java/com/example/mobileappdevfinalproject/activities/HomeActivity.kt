@@ -8,8 +8,13 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.CompositePageTransformer
+import androidx.viewpager2.widget.MarginPageTransformer
 import com.example.mobileappdevfinalproject.Adapter.BrandsAdapter
+import com.example.mobileappdevfinalproject.Adapter.SliderAdapter
 import com.example.mobileappdevfinalproject.databinding.ActivityHomeBinding
+import com.example.mobileappdevfinalproject.model.SliderModel
 import com.example.mobileappdevfinalproject.utils.PreferenceManager
 import com.example.mobileappdevfinalproject.viewmodel.HomeViewModel
 import com.google.firebase.Firebase
@@ -43,6 +48,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun initUI() {
        initBrands()
+        initBanners()
     }
 
     private fun initBrands() {
@@ -55,6 +61,36 @@ class HomeActivity : AppCompatActivity() {
             binding.progressBarCategory.visibility = View.GONE
         }
         viewModel.loadBrands()
+    }
+
+    private fun setupBanners(image: List<SliderModel>){
+        binding.viewpagerSlider.apply {
+            adapter= SliderAdapter(image, this)
+            clipToPadding=false
+            clipChildren=false
+            offscreenPageLimit=3
+            (getChildAt(0) as RecyclerView).overScrollMode= RecyclerView.OVER_SCROLL_NEVER
+            setPageTransformer(CompositePageTransformer().apply {
+                    addTransformer(MarginPageTransformer(40))
+            })
+        }
+        binding.dotIndicator.apply {
+            visibility=if(image.size>1) View.VISIBLE else View.GONE
+             if(image.size>1)attachTo(binding.viewpagerSlider)
+        }
+    }
+    private fun initBanners() {
+        binding.progressBarBanner.visibility = View.VISIBLE
+
+        viewModel.banners.observe(this) { items ->
+            android.util.Log.d("HomeActivity", "Banners received: ${items.size} items")
+            items.forEachIndexed { index, sliderModel ->
+                android.util.Log.d("HomeActivity", "Banner $index: url='${sliderModel.url}', picUrl='${sliderModel.picUrl}', image='${sliderModel.image}'")
+            }
+            setupBanners(items)
+            binding.progressBarBanner.visibility = View.GONE
+        }
+        viewModel.loadBanners()
     }
 
     private fun setupClickListeners() {
