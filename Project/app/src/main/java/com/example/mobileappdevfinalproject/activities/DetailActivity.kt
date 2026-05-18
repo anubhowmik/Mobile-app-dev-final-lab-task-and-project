@@ -6,7 +6,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.example.mobileappdevfinalproject.Adapter.ColorAdapter
+import com.example.mobileappdevfinalproject.Adapter.PicsAdapter
 import com.example.mobileappdevfinalproject.Cart.ManagementCart
 import com.example.mobileappdevfinalproject.R
 import com.example.mobileappdevfinalproject.databinding.ActivityDetailBinding
@@ -26,7 +29,27 @@ class DetailActivity : AppCompatActivity() {
         managementCart = ManagementCart(this)
         item = intent.getSerializableExtra("object")!! as ItemModel
         setupViews()
+        setupPicsList()
+        setupColorsList()
     }
+
+    private fun setupColorsList() {
+        binding.colorList.adapter= ColorAdapter(item.color)
+        binding.colorList.layoutManager=LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false)
+    }
+
+    private fun setupPicsList() {
+        val picList = item.picUrl
+        binding.picList.apply {
+            adapter = PicsAdapter(picList) { imageUrl ->
+                Glide.with(this@DetailActivity)
+                    .load(imageUrl)
+                    .into(binding.picMain)
+            }
+            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        }
+    }
+
     private fun setupViews()=with(binding){
             titleTxt.text=item.title
             descriptionTxt.text=item.description

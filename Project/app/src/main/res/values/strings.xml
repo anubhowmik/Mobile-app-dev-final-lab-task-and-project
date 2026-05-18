@@ -6,4 +6,12 @@
     <string name="select_size">Select Size</string>
     <string name="buy_now">Buy Now</string>
     <string name="title">title</string>
+    <string name="type_color">Type Color</string>
+    <string name="type_size">Type Size</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="free_delivery">Free Delivery</string>
+    <string name="total_tax">Total Tax</string>
+    <string name="total">Total</string>
+    <string name="your_cart_is_emty">Your Cart Is Emty</string>
+    <string name="order_details">Order Details</string>
 </resources>

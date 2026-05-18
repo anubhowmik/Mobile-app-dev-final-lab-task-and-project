@@ -54,7 +54,14 @@ class HomeActivity : AppCompatActivity() {
        initBrands()
         initBanners()
         initRecommended()
+        initBottomNavigation()
 
+    }
+
+    private fun initBottomNavigation() {
+        binding.cartBtn.setOnClickListener {
+            startActivity(Intent(this, CartActivity::class.java))
+        }
     }
 
     private fun initRecommended() {
