@@ -51,4 +51,9 @@ class ManagementCart(val context: Context) {
         }
         return fee
     }
+
+    /** Clears the cart after a successful order placement */
+    fun clearCart() {
+        tinyDB.putListObject("CartList", arrayListOf<ItemModel>())
+    }
 }

@@ -1,40 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- PERMISSION: Firebase needs internet to work -->
+
+    <!-- Firebase needs internet -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application android:theme="@style/Theme.MObileAppDevFinalProject">
-        <activity
-            android:name=".activities.CartActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.DetailActivity"
-            android:exported="false" />
-        <!--
-            LAUNCHER activity = first screen shown when you tap the app icon
-            android:exported="true" is REQUIRED for launcher activities
-        -->
+
+        <!-- ── User-facing activities ─────────────────────────────── -->
+
         <activity
             android:name=".activities.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- All other activities: exported="false" (can only be opened by this app) -->
-        <activity
-            android:name=".activities.LoginActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.EmailVerificationActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activities.HomeActivity"
-            android:exported="false" />
-    </application>
+        </activity>
 
+        <activity android:name=".activities.LoginActivity"      android:exported="false" />
+        <activity android:name=".activities.SignUpActivity"     android:exported="false" />
+        <activity android:name=".activities.ForgotPasswordActivity" android:exported="false" />
+        <activity android:name=".activities.EmailVerificationActivity" android:exported="false" />
+        <activity android:name=".activities.HomeActivity"       android:exported="false" />
+        <activity android:name=".activities.DetailActivity"     android:exported="false" />
+        <activity android:name=".activities.CartActivity"       android:exported="false" />
+
+        <!-- ── NEW: Checkout flow ─────────────────────────────────── -->
+        <activity android:name=".activities.CheckoutActivity"          android:exported="false" />
+        <activity android:name=".activities.OrderConfirmationActivity" android:exported="false" />
+
+        <!-- ── NEW: Admin panel ───────────────────────────────────── -->
+        <!--
+            Keep exported="false" so only this app can open it.
+            In production, protect with Firebase custom claims before
+            rendering the admin screen.
+        -->
+        <activity android:name=".activities.AdminActivity" android:exported="false" />
+
+    </application>
 </manifest>

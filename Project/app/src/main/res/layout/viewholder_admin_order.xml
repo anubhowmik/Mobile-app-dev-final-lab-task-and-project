@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="3dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Order ID + Status badge -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:id="@+id/tvAdminOrderId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvStatusBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:textSize="11sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Customer -->
+        <TextView
+            android:id="@+id/tvAdminCustomer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#333"
+            android:textSize="13sp"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Address -->
+        <TextView
+            android:id="@+id/tvAdminAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#555"
+            android:textSize="12sp"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Payment -->
+        <TextView
+            android:id="@+id/tvAdminPayment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#555"
+            android:textSize="12sp"
+            android:layout_marginBottom="4dp" />
+
+        <!-- Date -->
+        <TextView
+            android:id="@+id/tvAdminDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#888"
+            android:textSize="11sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#EEEEEE"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Items -->
+        <TextView
+            android:id="@+id/tvAdminItems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#333"
+            android:textSize="12sp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Total -->
+        <TextView
+            android:id="@+id/tvAdminTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#3a9aee"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#EEEEEE"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Status changer -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Update Status:"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:layout_marginBottom="4dp" />
+
+        <Spinner
+            android:id="@+id/spinnerOrderStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

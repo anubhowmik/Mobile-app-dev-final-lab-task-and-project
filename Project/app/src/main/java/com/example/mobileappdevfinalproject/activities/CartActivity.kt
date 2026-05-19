@@ -33,6 +33,10 @@ class CartActivity : AppCompatActivity() {
 
     private fun initView() {
         binding.backBtn.setOnClickListener { finish() }
+        binding.button.setOnClickListener {
+            val intent = android.content.Intent(this, CheckoutActivity::class.java)
+            startActivity(intent)
+        }
     }
     private fun initCartList(){
         binding.apply{
